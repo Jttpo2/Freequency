@@ -7,15 +7,14 @@ export default class App extends React.Component {
     this.state = {text: ''};
   }
 
-  render() {
+  _onPressButton() {
+    Alert.alert('buttontap');
+  }
 
+  render() {
     let pic = {
       uri: 'https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png'
     };
-
-    _onPressButton() {
-      Alert.alert('buttontap');
-    }
 
     return (
 
@@ -28,10 +27,10 @@ export default class App extends React.Component {
         >
           <TextInput
             style={{height: 40}}
-            placeholder='k'
+            placeholder='ksfas'
             onChangeText={(text) => this.setState({text})}
           />
-          <Text style={{fontSize: 33}}>
+          <Text style={{fontSize: 50}}>
             {this.state.text}
           </Text>
           <Button
