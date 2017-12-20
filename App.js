@@ -109,9 +109,9 @@ class Fft extends Component {
     // First segment
     curveString += this._getBezierCurveForSegment(
       curvePoints[0],
-      curvePoints[1],
       curvePoints[0],
-      curvePoints[2]
+      curvePoints[2],
+      curvePoints[1]
     );
 
     // Middle segments
