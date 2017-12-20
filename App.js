@@ -164,25 +164,14 @@ class Fft extends Component {
   });
 
   class Point {
-    constructor(x, y, color = pointColor) {
+    constructor(x, y) {
       this.x = x;
       this.y = y;
-      this.radius = 5;
-      this.color = color;
     };
-
-    display() {
-      ctx.strokeStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-      ctx.stroke();
-    }
 
     copy(point) {
       this.x = point.x;
       this.y = point.y;
-      this.radius = point.radius;
-      this.color = point.color;
     }
 
     static lerp(start, end, amount) {
