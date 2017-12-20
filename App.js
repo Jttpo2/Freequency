@@ -76,7 +76,8 @@ class Fft extends Component {
 
   function toBezierCurveSVGString(start, ctrl1, ctrl2, end) {
     return 'M ' + start.x + ' ' + start.y +
-    'C' + ctrl1.x + ' ' + ctrl2.y + ' ' +
+    'C' + ctrl1.x + ' ' + ctrl1.y + ' ' +
+    ctrl2.x + ' ' + ctrl2.y + ' ' +
     end.x + ' ' + end.y;
   }
 
