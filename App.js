@@ -65,14 +65,6 @@ class Fft extends Component {
       controlPoint2,
       end
     );
-
-    // ctx.strokeStyle = lineColor;
-    // ctx.moveTo(start.x, start.y);
-    // ctx.bezierCurveTo(
-    //   controlPoint1.x, controlPoint1.y,
-    //   controlPoint2.x, controlPoint2.y,
-    //   end.x, end.y
-    // );
   };
 
   _toSVGString(start, ctrl1, ctrl2, end) {
@@ -138,23 +130,6 @@ class Fft extends Component {
       stroke='black'
     />
 
-    // for (let i=0; i<this.state.data.length; i++) {
-    //   {/*  Cubic Bezier curve */}
-    //   curves.push(
-    //     <Path
-    //     d={toBezierCurveSVGString(
-    //       new Point(0, 300),
-    //       new Point(100, 150),
-    //       new Point(400, 150),
-    //       new Point(500, 300)
-    //     )}
-    //     // d='M 0 300 c 100 -150 400 -150 500 0'
-    //     fill='none'
-    //     stroke='black'
-    //   />
-    // )
-    // }
-
     return (
 
       <View
@@ -173,7 +148,6 @@ class Fft extends Component {
           }}
           >
             {curve}
-
           </Svg>
         </View>
       );
@@ -188,8 +162,6 @@ class Fft extends Component {
       alignItems: 'center'
     }
   });
-
-
 
   class Point {
     constructor(x, y, color = pointColor) {
