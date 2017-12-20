@@ -4,8 +4,6 @@ import Svg, { Circle, Rect, Path } from 'react-native-svg';
 
 let pointColor = '#007700';
 
-
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,11 +36,7 @@ class Fft extends Component {
     return data;
   }
 
-
   render() {
-    // let {height, width} = Dimensions.get('window');
-    // let height = 100;
-    // const height = Dimensions.get('window').heigth;
     const width = 400;
     const height = 200;
     return (
@@ -74,18 +68,6 @@ class Fft extends Component {
               stroke='black'
             />
 
-
-
-            {/* <Circle
-              cx='50%'
-              cy='50%'
-              r='100'
-              stroke='black'
-              strokeWeight='2.5'
-              fill='grey'
-            /> */}
-
-
           </Svg>
         </View>
       );
@@ -98,76 +80,6 @@ class Fft extends Component {
     end.x + ' ' + end.y;
   }
 
-  class ButtonTextTest extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {text: ''};
-    }
-
-    _onPressButton() {
-      Alert.alert('buttontap');
-    }
-
-    render() {
-      let pic = {
-        uri: 'https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_1280.png'
-      };
-
-      return (
-
-        <View
-          style={{
-            flex: 0.7,
-            width: '80%',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'grey'
-          }}>
-          <TextInput
-            style={{
-              height: 40
-            }}
-            placeholder='ksfas'
-            onChangeText={(text) => this.setState({text})}
-          />
-          <Text
-            style={{
-              fontSize: 50
-            }}>
-            {this.state.text}
-          </Text>
-          <Button
-            onPress={this._onPressButton}
-            title='Tap'
-          />
-        </View>
-      );
-    }
-  }
-
-  class Blink extends Component {
-    constructor(props){
-      super(props);
-      this.state = {showText: true};
-
-      setInterval(() => {
-        this.setState(previousState => {
-          return {
-            showText: !previousState.showText
-          }
-        });
-      }, 1000);
-    }
-
-    render() {
-      let display = this.state.showText ? this.props.text : ' ';
-      return (
-        <Text style={styles.bigRed}>{display}</Text>
-      );
-    }
-  }
-
   const styles = StyleSheet.create( {
     container: {
       flex: 1,
@@ -176,7 +88,6 @@ class Fft extends Component {
       alignItems: 'center'
     }
   });
-
 
   class Point {
     constructor(x, y, color = pointColor) {
