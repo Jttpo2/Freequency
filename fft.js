@@ -70,6 +70,39 @@ export class Fft extends Component {
     return (height / this.state.maxDb) * yValue;
   };
 
+  _getFirstCurveSegmentString(curvePoints) {
+    return this._getBezierCurveForSegment(
+      curvePoints[0],
+      curvePoints[0],
+      curvePoints[2],
+      curvePoints[1]
+    );
+  }
+
+  _getMiddleCurveSegments(curvePoints) {
+    let curveString = '';
+    for (let i=1; i<curvePoints.length-2; i++) {
+      curveString += this._getBezierCurveForSegment(
+        curvePoints[i],
+        curvePoints[i-1],
+        curvePoints[i+2],
+        curvePoints[i+1]
+      );
+    }
+    return curveString;
+  }
+
+  _getEndSegmentCurveString(curvePoints) {
+    let curveString = '';
+    curveString += this._getBezierCurveForSegment(
+      curvePoints[curvePoints.length-2],
+      curvePoints[curvePoints.length-3],
+      curvePoints[curvePoints.length-1],
+      curvePoints[curvePoints.length-1]
+    );
+    return curveString;
+  }
+
   render() {
     // Scale xOff to canvas width
     let xOff = this.state.width/(this.state.data.length -1);
@@ -83,32 +116,9 @@ export class Fft extends Component {
     }, this);
 
     let curveString = '';
-
-    // First segment
-    curveString += this._getBezierCurveForSegment(
-      curvePoints[0],
-      curvePoints[0],
-      curvePoints[2],
-      curvePoints[1]
-    );
-
-    // Middle segments
-    for (let i=1; i<curvePoints.length-2; i++) {
-      curveString += this._getBezierCurveForSegment(
-        curvePoints[i],
-        curvePoints[i-1],
-        curvePoints[i+2],
-        curvePoints[i+1]
-      );
-    }
-
-    // Last segment
-    curveString += this._getBezierCurveForSegment(
-      curvePoints[curvePoints.length-2],
-      curvePoints[curvePoints.length-3],
-      curvePoints[curvePoints.length-1],
-      curvePoints[curvePoints.length-1]
-    );
+    curveString += this._getFirstCurveSegmentString(curvePoints);
+    curveString += this._getMiddleCurveSegments(curvePoints);
+    curveString += this._getEndSegmentCurveString(curvePoints);
 
     let curve = <Path
       d={curveString}
